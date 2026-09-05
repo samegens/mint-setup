@@ -23,7 +23,13 @@ On the new machine:
 
 On another existing machine:
 
-1. Clone and enter this repo.
+1. Clone and enter this repo:
+
+   ```sh
+   git clone https://github.com/samegens/mint-setup
+   cd mint-setup
+   ```
+
 2. Copy the scripts to the new machine: `scp setup.sh finalize.sh mint@<ip-address>:~`
 3. SSH into the new machine: `ssh mint@<ip-address>`
 
