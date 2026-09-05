@@ -44,6 +44,10 @@ rebuild_boot_configuration() {
     chroot "$target_root" update-grub
 }
 
+install_openssh_server() {
+    chroot "$target_root" apt-get install -y openssh-server
+}
+
 unmount_efivars_if_present() {
     local efivars_path="${target_root}/sys/firmware/efi/efivars"
     if mountpoint -q "$efivars_path"; then
@@ -69,5 +73,6 @@ crypt_partition="$(detect_crypt_partition)"
 mount_virtual_filesystems
 write_crypttab_entry
 rebuild_boot_configuration
+install_openssh_server
 unmount_virtual_filesystems
 print_next_steps
