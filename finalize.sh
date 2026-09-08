@@ -46,6 +46,7 @@ rebuild_boot_configuration() {
 
 install_openssh_server() {
     chroot "$target_root" apt-get install -y openssh-server
+    chroot "$target_root" systemctl enable ssh
 }
 
 unmount_efivars_if_present() {
